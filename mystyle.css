@@ -1,0 +1,66 @@
+﻿body
+{
+}
+
+img {
+    border-radius: 10%;
+}
+#mage {
+    border: solid #5CDDE0 3px;
+}
+
+#range {
+    border: solid #59AB2C 3px;
+}
+
+
+li {
+    list-style-type: none;
+    font-size: 16px;
+    line-height: 1.2em;
+    text-align: center;
+
+}
+
+li:hover{
+    cursor: pointer;
+}
+
+.linkactive{
+    color: dodgerblue;
+    border: solid 2px black;
+    padding: 4px;
+    background-color: aliceblue;
+}
+#output {
+    position: relative;
+    left: 10px;
+    margin: 15px;
+ 
+    column-count: 2;
+}
+
+#stats{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 400px;
+    text-align: left;
+
+
+}
+
+#statZone{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+p{
+    color: green;
+}
+
+
+span {
+    padding: 5px;
+}
