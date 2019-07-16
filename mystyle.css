@@ -1,5 +1,5 @@
-﻿body
-{
+﻿body {
+    font-family: 'Dosis', sans-serif;
 }
 
 img {
@@ -17,9 +17,8 @@ img {
 li {
     list-style-type: none;
     font-size: 16px;
-    line-height: 1.2em;
+    line-height: 1.9em;
     text-align: center;
-
 }
 
 li:hover{
@@ -63,4 +62,47 @@ p{
 
 span {
     padding: 5px;
+}
+
+
+
+#stats {
+    background-color: #c4ebf9;
+    opacity: .8;
+    visibility: hidden;
+    padding: 10px;
+    border: 1px solid #88d2f2;
+}
+
+.skillArea {
+    background-color: aliceblue;
+    border: solid 2px #04517b;
+    color: #04517b;
+    padding: 10px;
+    letter-spacing: 1px;
+    
+}
+
+.manaArea {
+    background-color: #04517b;
+    border: solid 2px #c4ebf9;
+    color: #c4ebf9;
+    padding: 10px;
+    letter-spacing: 1px;
+
+}
+
+.abilityStatsArea {
+    background-color: #88d2f2;
+    border: solid 2px #c4ebf9;
+    color: #04517b;
+    padding: 10px;
+    letter-spacing: 1px;
+    
+}
+
+.recoItemsArea {
+    font-size: 18px;
+    color: #04517b;
+    letter-spacing: 1px;
 }

@@ -4,15 +4,15 @@
 //button declarations here  + JSON file gathering:
 let $buttons = document.getElementsByTagName("button");
 let $output = document.getElementById("output");
-
+let $itemOutput = document.getElementById("itemOutput");
 let statArea = document.getElementById("stats");
-
+let $itemArea = document.getElementById("itemArea");
 
 //json declarations
 let classes = classesList;
 let tiers = tierlist;
 let champs = champions;
-
+let itemList = items;
 
 let tierList = [];
 
@@ -25,22 +25,12 @@ for (let x = 0; x < $buttons.length; x++) {
 }
 function getTierList(buttonId) {
         switch (buttonId) {
-
-        //case "tierOne":
-        //    displayTier(buttonId, 1);
-        //    break;
-        //case "tierTwo":
-        //    displayTier(buttonId, 2);
-        //    break;
-        //case "tierThree":
-        //    displayTier(buttonId, 3);
-        //    break;
-        //case "tierFour":
-        //    displayTier(buttonId, 4);
-        //    break;
-        //case "tierFive":
-        //    displayTier(buttonId, 5);
-        //        break;
+        case "mainMenu":
+            displayTier();
+                break;
+            case "itemList":
+                displayItems();
+                break;
         case "classes":
             displayClasses(buttonId);
                 break;
@@ -66,25 +56,10 @@ function removeLinks() {
 
 function displayTier() {
 
-
+    $itemArea.innerHTML = "";
     tierList = [];
     $output.innerHTML = "";
-    //let titleElement = document.createElement("h1");
-    //titleElement.innerHTML = "Tier List - " + num;
-    //$output.appendChild(titleElement);
-
-    //for (let i = 0; i < tiers.length; i++) {
-
-    //    for (let j = 0; j < tiers[i].all[num].length; j++) {
-    //        //console.log(tiers[i].all[num][j]);
-    //        tierList.push(tiers[i].all[num][j])
-    //        //$output.innerHTML += " - " + tiers[i].all[num][j] + "<br>";
-
-
-    //    }
-
-    //}
-
+    
 
 
 
@@ -94,38 +69,14 @@ function displayTier() {
    
         for (champ in champs[k]) {
 
-            //console.log(champs[k][champ])
-
-
-            //for (let i = 0; i < tierList.length; i++) {
-                //if (champs[k][champ].key == tierList[i]) {
-
+           
                     console.log(champs[k][champ])
             let champNames = document.createElement("li");
             champNames.id = champs[k][champ].name
                     champNames.innerHTML = champs[k][champ].name;
                     $output.appendChild(champNames);
 
-                    //let champClasses = document.createElement("ul");
-                    //champClasses.innerHTML = champs[k][champ].origin + " - " + champs[k][champ].class;
-                    //$output.appendChild(champClasses);
 
-                    //let champSkill = document.createElement("p");
-                    //champSkill.innerHTML = "<b>Ability: </b>"  + champs[k][champ].ability.name + "<br>" + "<b>Description: </b>"+ champs[k][champ].ability.description;
-                    //$output.appendChild(champSkill);
-
-                    //let recoItems = document.createElement("ul");
-                    //if (!champs[k][champ].items[2]) {
-                    //    recoItems.innerHTML = "Best Items:  " + (champs[k][champ].items[0].charAt(0).toUpperCase() + champs[k][champ].items[0].slice(1)) + " - " + (champs[k][champ].items[1].charAt(0).toUpperCase() + champs[k][champ].items[1].slice(1))
-                    //} else {
-                    //    recoItems.innerHTML = "Best Items:  " + (champs[k][champ].items[0].charAt(0).toUpperCase() + champs[k][champ].items[0].slice(1)) + " - " + (champs[k][champ].items[1].charAt(0).toUpperCase() + champs[k][champ].items[1].slice(1)) + " - " + (champs[k][champ].items[2].charAt(0).toUpperCase() + champs[k][champ].items[2].slice(1));
-
-                    //}
-                    //$output.appendChild(recoItems);
-                    //$output.innerHTML += (" - " + champs[k][champ].origin + champs[k][champ].class + "<br>");
-                //}
-
-            //}
            
         }
     }
@@ -142,7 +93,7 @@ function displayTier() {
          
           
             removeLinks();
-                e.target.classList.add("linkactive");
+                e.target.classList.toggle("linkactive");
 
                
             displayStats(this.id);
@@ -163,7 +114,7 @@ function displayTier() {
 
 function displayStats(champion) {
 
-
+    statArea.style.visibility = "visible";
     statArea.innerHTML = "";
     for (let k = 0; k < champs.length; k++) {
         for (champ in champs[k]) {
@@ -174,15 +125,15 @@ function displayStats(champion) {
                 champName.innerHTML = champs[k][champ].name;
                 statArea.appendChild(champName);
                 statArea.innerHTML += (" - " + champs[k][champ].origin + " - " + champs[k][champ].class + "<br>");
-                    //let champClasses = document.createElement("ul");
-                    //champClasses.innerHTML = champs[k][champ].origin + " - " + champs[k][champ].class;
-                    //statArea.appendChild(champClasses);
+                   
 
                 let champSkill = document.createElement("p");
+                champSkill.classList.add("skillArea");
                 champSkill.innerHTML = "<b>Ability: </b>"  + champs[k][champ].ability.name + "<br>" + "<b>Description: </b>"+ champs[k][champ].ability.description;
                 statArea.appendChild(champSkill);
 
                 let manaStat = document.createElement("p");
+                manaStat.classList.add("manaArea");
                 manaStat.innerHTML = "<b>Mana Cost: </b>" + champs[k][champ].ability.manaCost + "<br>" + "<b>Mana Start: </b>" + champs[k][champ].ability.manaStart;
                 statArea.appendChild(manaStat);
 
@@ -190,9 +141,10 @@ function displayStats(champion) {
 
                
                 let abilityStats = document.createElement("p"); 
+                abilityStats.classList.add("abilityStatsArea");
                 for (let j = 0; j < champs[k][champ].ability.stats.length; j++) {
 
-                    abilityStats.innerHTML += "<br><b>Stat Type: </b>" + champs[k][champ].ability.stats[j].type + "<br>" + "<b>Stat Value: </b>" + champs[k][champ].ability.stats[j].value +"<br>";
+                    abilityStats.innerHTML += "<br><b>"+champs[k][champ].ability.stats[j].type + "</b><br>"  + champs[k][champ].ability.stats[j].value +"<br>";
                 
                 }
                 statArea.appendChild(abilityStats);
@@ -229,11 +181,12 @@ function displayStats(champion) {
                 statArea.appendChild(baseArmor);
                 statArea.appendChild(baseMr);
 
-                 let recoItems = document.createElement("p");
+                let recoItems = document.createElement("p");
+                recoItems.classList.add("recoItemsArea");
                 if (!champs[k][champ].items[2]) {
-                    recoItems.innerHTML = "Best Items:  " + (champs[k][champ].items[0].charAt(0).toUpperCase() + champs[k][champ].items[0].slice(1)) + " | " + (champs[k][champ].items[1].charAt(0).toUpperCase() + champs[k][champ].items[1].slice(1))
+                    recoItems.innerHTML = "<b>Recommended Items:</b><br>  " + (champs[k][champ].items[0].charAt(0).toUpperCase() + champs[k][champ].items[0].slice(1)) + " ---  " + (champs[k][champ].items[1].charAt(0).toUpperCase() + champs[k][champ].items[1].slice(1))
                 } else {
-                    recoItems.innerHTML = "Best Items:  " + (champs[k][champ].items[0].charAt(0).toUpperCase() + champs[k][champ].items[0].slice(1)) + " | " + (champs[k][champ].items[1].charAt(0).toUpperCase() + champs[k][champ].items[1].slice(1)) + " | " + (champs[k][champ].items[2].charAt(0).toUpperCase() + champs[k][champ].items[2].slice(1));
+                    recoItems.innerHTML = "<b>Recommended Items:</b><br>  " + (champs[k][champ].items[0].charAt(0).toUpperCase() + champs[k][champ].items[0].slice(1)) + " ---  " + (champs[k][champ].items[1].charAt(0).toUpperCase() + champs[k][champ].items[1].slice(1)) + " --- " + (champs[k][champ].items[2].charAt(0).toUpperCase() + champs[k][champ].items[2].slice(1));
                 }
                 statArea.appendChild(recoItems);
                
@@ -297,6 +250,128 @@ function displayClasses(id) {
 
 }
 
+function displayItems() {
+
+    
+    $itemArea.innerHTML = "";
+    let unlist = document.createElement("ul");
+    $itemArea.appendChild(unlist);
+    $output.innerHTML = "";
+    statArea.innerHTML = "";
+
+    for (let i = 0; i < itemList.length; i++) {
+
+     
+        for (item in items[i]) {
+            console.log(items[i][item]);
+            if (items[i][item].kind == "basic") {
+                let listItem = document.createElement("li");
+                
+                listItem.innerHTML = items[i][item].name;
+
+                listItem.classList.add("item");
+                unlist.appendChild(listItem);
+
+               
+
+
+ 
+            }
+        }
+
+    
+    }
+    eventAdding();
 
 
 
+}
+
+
+function eventAdding() {
+    let iList = document.querySelectorAll(".item");
+    for (let j = 0; j < iList.length; j++) {
+        iList[j].addEventListener("click", function (e) {
+            outputItem(this.innerHTML);
+        })
+    }
+}
+
+
+function outputItem(itemName) {
+
+    for (let i = 0; i < items.length; i++) {
+        for (item in items[i]) {
+
+            if (itemName == items[i][item].name) {
+
+
+                $itemOutput.innerHTML = "";
+                let nameOfItem = document.createElement("h3");
+                nameOfItem.innerHTML = "Item Name: " + itemName;
+                nameOfItem.id = items[i][item].name;
+
+                $itemOutput.appendChild(nameOfItem);
+
+
+                let itemStats = document.createElement("p");
+                itemStats.innerHTML = "Title: " + items[i][item].stats[0].title + "<br>" + "Amount: " + items[i][item].stats[0].amount;
+                $itemOutput.appendChild(itemStats)
+
+
+                let buildInto = document.createElement("ul");
+                
+              
+
+                
+                
+                for (let j = 0; j < items[i][item].buildsInto.length; j++) {
+                    let listInto = document.createElement("li");
+                    listInto.id = items[i][item].buildsInto[j]
+                    listInto.innerHTML += items[i][item].buildsInto[j];
+                    buildInto.appendChild(listInto);
+                    console.log(items[i][item].buildsInto[j]);
+
+
+
+
+                    $itemOutput.appendChild(listInto);
+                    listInto.addEventListener("click", function (e) {
+
+                        displayHoverBuild(this.id);
+                        
+                    })
+
+
+                }
+               
+                
+            }
+        }
+
+    }
+}
+
+function displayHoverBuild(itemId) {
+
+    console.log(itemId)
+    let selector = "#" + itemId
+    let itemsLists = document.querySelector(selector);
+    let buildFrom = document.createElement("p");
+   
+
+    for (let i = 0; i < items.length; i++) {
+        for (item in items[i]) {
+            if (itemId == items[i][item].key) {
+                buildFrom.innerHTML = (items[i][item].buildsFrom[0] + "   " + items[i][item].buildsFrom[1]);
+                itemsLists.innerHTML = itemId
+
+        
+            }
+        }
+
+     
+        itemsLists.appendChild(buildFrom);
+    }
+   
+}
