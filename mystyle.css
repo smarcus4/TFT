@@ -16,9 +16,14 @@ img {
 
 li {
     list-style-type: none;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.9em;
     text-align: center;
+}
+
+.championNames{
+    font-size: 20px;
+
 }
 
 li:hover{
@@ -55,9 +60,6 @@ li:hover{
     flex-direction: row;
 }
 
-p{
-    color: green;
-}
 
 
 span {
@@ -67,11 +69,11 @@ span {
 
 
 #stats {
-    background-color: #c4ebf9;
+    
+   text-align: center;
     opacity: .8;
     visibility: hidden;
     padding: 10px;
-    border: 1px solid #88d2f2;
 }
 
 .skillArea {
@@ -103,6 +105,409 @@ span {
 
 .recoItemsArea {
     font-size: 18px;
-    color: #04517b;
+    color: black;
     letter-spacing: 1px;
+}
+
+.demonStats {
+    background-color: #938bc7;
+    opacity: .8;
+    padding: 10px;
+    color: #241956;
+}
+
+.demonAbility {
+    background-color: #EAC3FF;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+.demonMana {
+    background-color: #EAC3FF;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+    
+}
+
+
+.demonSkill {
+    background-color: #EAC3FF;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+.wildStats {
+    background-color: #e1ece6;
+    opacity: .8;
+    padding: 10px;
+    color: #517350;
+}
+
+.wildAbility {
+    background-color: #edf1f0;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+.wildMana {
+    background-color: #edf1f0;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+.wildSkill {
+    background-color: #edf1f0;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+.ninjaStats {
+    background-color: #1e272c;
+    opacity: .8;
+    padding: 10px;
+    color: #e6e6e6;
+}
+
+.ninjaAbility {
+    background-color: #333333;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+.ninjaMana {
+    background-color: #333333;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+.ninjaSkill {
+    background-color: #333333;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+
+
+.glacialStats {
+    background-color: #90e8f8;
+    opacity: .8;
+    padding: 10px;
+    color: #002028;
+}
+
+.glacialAbility {
+    background-color: #18a8c0;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+.glacialMana {
+    background-color: #18a8c0;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+.glacialSkill {
+    background-color: #18a8c0;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+.robotStats {
+    background-color: #e7c5c2;
+    opacity: .8;
+    padding: 10px;
+    color: #c05d4f;
+}
+
+.robotAbility {
+    background-color: #ede9e6;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+.robotMana {
+    background-color: #ede9e6;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+.robotSkill {
+    background-color: #ede9e6;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+
+.voidStats {
+    background-color: #869ca5;
+    opacity: .8;
+    padding: 10px;
+    color: #2b0529;
+}
+
+.voidAbility {
+    background-color: #8c769f;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+.voidMana {
+    background-color: #8c769f;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+.voidSkill {
+    background-color: #8c769f;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+
+
+.imperialStats {
+    background-color: #9c1b1b;
+    opacity: .8;
+    padding: 10px;
+    color: #f0ece1;
+}
+
+.imperialAbility {
+    background-color: #d63333;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+.imperialMana {
+    background-color: #d63333;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+.imperialSkill {
+    background-color: #d63333;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+
+.nobleStats {
+    background-color: rgba(182,175,45,1);
+    opacity: .8;
+    padding: 10px;
+    color: #d8d69e;
+}
+
+.nobleAbility {
+    background-color: #8890a7;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+.nobleMana {
+    background-color: #8890a7;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+.nobleSkill {
+    background-color: #8890a7;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+
+.pirateStats {
+    background-color: #1c8bc1;
+    opacity: .4;
+    padding: 10px;
+    color: #760a0a;
+}
+
+.pirateAbility {
+    background-color: #ddd417;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+.pirateMana {
+    background-color: #ddd417;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+.pirateSkill {
+    background-color: #ddd417;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+
+.phantomStats {
+    background-color: #3c455c;
+    opacity: .4;
+    padding: 10px;
+    color: #3ddad7;
+}
+.phantomAbility {
+    background-color: #135589;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+.phantomMana {
+    background-color: #135589;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+.phantomSkill {
+    background-color: #135589 ;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+
+.yordStats {
+    background-color: #e6e5e5;
+    opacity: .4;
+    padding: 10px;
+    color: #566e50;
+}
+
+.yordAbility {
+    background-color: #b6b1a6;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+.yordMana {
+    background-color: #b6b1a6;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
+}
+
+
+.yordSkill {
+    background-color: #b6b1a6;
+    opacity: .8;
+    padding: 10px;
+    position: relative;
+    display: block;
+    margin: 15px auto;
 }

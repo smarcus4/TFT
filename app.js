@@ -72,6 +72,7 @@ function displayTier() {
            
                     console.log(champs[k][champ])
             let champNames = document.createElement("li");
+            champNames.classList.add("championNames");
             champNames.id = champs[k][champ].name
                     champNames.innerHTML = champs[k][champ].name;
                     $output.appendChild(champNames);
@@ -121,19 +122,21 @@ function displayStats(champion) {
             
             if (champion == champs[k][champ].name) {
 
-                let champName = document.createElement("h3");
+                let champName = document.createElement("h1");
                 champName.innerHTML = champs[k][champ].name;
                 statArea.appendChild(champName);
                 statArea.innerHTML += (" - " + champs[k][champ].origin + " - " + champs[k][champ].class + "<br>");
+                
+
+
+
                    
 
                 let champSkill = document.createElement("p");
-                champSkill.classList.add("skillArea");
                 champSkill.innerHTML = "<b>Ability: </b>"  + champs[k][champ].ability.name + "<br>" + "<b>Description: </b>"+ champs[k][champ].ability.description;
                 statArea.appendChild(champSkill);
 
                 let manaStat = document.createElement("p");
-                manaStat.classList.add("manaArea");
                 manaStat.innerHTML = "<b>Mana Cost: </b>" + champs[k][champ].ability.manaCost + "<br>" + "<b>Mana Start: </b>" + champs[k][champ].ability.manaStart;
                 statArea.appendChild(manaStat);
 
@@ -141,7 +144,6 @@ function displayStats(champion) {
 
                
                 let abilityStats = document.createElement("p"); 
-                abilityStats.classList.add("abilityStatsArea");
                 for (let j = 0; j < champs[k][champ].ability.stats.length; j++) {
 
                     abilityStats.innerHTML += "<br><b>"+champs[k][champ].ability.stats[j].type + "</b><br>"  + champs[k][champ].ability.stats[j].value +"<br>";
@@ -182,14 +184,110 @@ function displayStats(champion) {
                 statArea.appendChild(baseMr);
 
                 let recoItems = document.createElement("p");
-                recoItems.classList.add("recoItemsArea");
                 if (!champs[k][champ].items[2]) {
                     recoItems.innerHTML = "<b>Recommended Items:</b><br>  " + (champs[k][champ].items[0].charAt(0).toUpperCase() + champs[k][champ].items[0].slice(1)) + " ---  " + (champs[k][champ].items[1].charAt(0).toUpperCase() + champs[k][champ].items[1].slice(1))
                 } else {
                     recoItems.innerHTML = "<b>Recommended Items:</b><br>  " + (champs[k][champ].items[0].charAt(0).toUpperCase() + champs[k][champ].items[0].slice(1)) + " ---  " + (champs[k][champ].items[1].charAt(0).toUpperCase() + champs[k][champ].items[1].slice(1)) + " --- " + (champs[k][champ].items[2].charAt(0).toUpperCase() + champs[k][champ].items[2].slice(1));
                 }
                 statArea.appendChild(recoItems);
-               
+                statArea.className = "";
+                manaStat.className = "";
+                abilityStats.className = "";
+
+                if (champs[k][champ].origin == "Demon") {
+                    champSkill.classList.add("demonSkill");
+                    statArea.classList.add("demonStats");
+                    manaStat.classList.add("demonMana");
+                    abilityStats.classList.add("demonAbility");
+                    recoItems.classList.add("recoItemsArea");
+
+                } else if (champs[k][champ].origin == "Phantom") {
+                    champSkill.classList.add("phantomSkill");
+
+                    statArea.classList.add("phantomStats");
+                    manaStat.classList.add("phantomMana");
+                    abilityStats.classList.add("phantomAbility");
+                    recoItems.classList.add("recoItemsArea");
+
+                } else if (champs[k][champ].origin == "Void") {
+                    champSkill.classList.add("voidSkill");
+
+                    statArea.classList.add("voidStats");
+                    manaStat.classList.add("voidMana");
+                    abilityStats.classList.add("voidAbility");
+                    recoItems.classList.add("recoItemsArea");
+
+
+                } else if (champs[k][champ].origin == "Noble") {
+                    champSkill.classList.add("nobleSkill");
+
+                    statArea.classList.add("nobleStats");
+                    manaStat.classList.add("nobleMana");
+                    abilityStats.classList.add("nobleAbility");
+                    recoItems.classList.add("recoItemsArea");
+
+                } else if (champs[k][champ].origin == "Glacial") {
+                    champSkill.classList.add("glacialSkill");
+
+                    statArea.classList.add("glacialStats");
+                    manaStat.classList.add("glacialMana");
+                    abilityStats.classList.add("glacialAbility");
+                    recoItems.classList.add("recoItemsArea");
+
+                } else if (champs[k][champ].origin == "Wild,Yordle" || champs[k][champ].origin == "Wild") {
+                    champSkill.classList.add("wildSkill");
+
+                    statArea.classList.add("wildStats");
+                    manaStat.classList.add("wildMana");
+                    recoItems.classList.add("recoItemsArea");
+                    abilityStats.classList.add("wildAbility");
+                } else if (champs[k][champ].origin == "Imperial" || champs[k][champ].origin == "Imperial,Demon") {
+                    champSkill.classList.add("imperialSkill");
+
+                    statArea.classList.add("imperialStats");
+                    manaStat.classList.add("imperialMana");
+                    abilityStats.classList.add("imperialAbility");
+                    recoItems.classList.add("recoItemsArea");
+
+                } else if (champs[k][champ].origin == "Ninja" || champs[k][champ].origin == "Ninja,Yordle") {
+                    champSkill.classList.add("ninjaSkill");
+
+                    statArea.classList.add("ninjaStats");
+                    manaStat.classList.add("ninjaMana");
+                    abilityStats.classList.add("ninjaAbility");
+                    recoItems.classList.add("recoItemsArea");
+
+                } else if (champs[k][champ].origin == "Pirate") {
+                    champSkill.classList.add("pirateSkill");
+
+                    statArea.classList.add("pirateStats");
+                    manaStat.classList.add("pirateMana");
+                    abilityStats.classList.add("pirateAbility");
+                    recoItems.classList.add("recoItemsArea");
+
+                } else if (champs[k][champ].origin == "Robot" || champs[k][champ].origin == "Dragon") {
+                    champSkill.classList.add("robotSkill");
+
+                    statArea.classList.add("robotStats");
+                    manaStat.classList.add("robotMana");
+                    abilityStats.classList.add("robotAbility");
+                    recoItems.classList.add("recoItemsArea");
+
+                } else if (champs[k][champ].origin == "Yordle") {
+                    champSkill.classList.add("yordSkill");
+
+                    statArea.classList.add("yordStats");
+                    manaStat.classList.add("yordMana");
+                    abilityStats.classList.add("yordAbility");
+                    recoItems.classList.add("recoItemsArea");
+
+                } else {
+                    manaStat.classList.add("manaArea");
+                    champSkill.classList.add("skillArea");
+                    abilityStats.classList.add("abilityStatsArea");
+                    recoItems.classList.add("recoItemsArea");
+
+                }
             } 
         }
     }
