@@ -19,6 +19,11 @@ img {
     height: 65px;
 }
 
+#spatula{
+    width: 65px;
+    height: 65px;
+}
+
 
 li {
     list-style-type: none;

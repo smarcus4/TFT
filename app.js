@@ -442,6 +442,7 @@ function outputItem(itemName) {
                     listInto.addEventListener("click", function (e) {
 
                         displayHoverBuild(this.id);
+                    
                         
                     })
 
@@ -456,18 +457,20 @@ function outputItem(itemName) {
 }
 
 function displayHoverBuild(itemId) {
-
+   
     console.log(itemId)
     let selector = "#" + itemId
     let itemsLists = document.querySelector(selector);
     let buildFrom = document.createElement("p");
 
-   
+
 
     for (let i = 0; i < items.length; i++) {
         let itemBuildFrom1 =  document.createElement("img");
         let itemBuildFrom2 =  document.createElement("img");
 
+        itemBuildFrom1.classList.add("itemImage");
+        itemBuildFrom2.classList.add("itemImage");
         for (item in items[i]) {
             if (itemId == items[i][item].key) {
                 itemBuildFrom1.src = "./images/"+items[i][item].buildsFrom[0]+".png";
@@ -478,10 +481,13 @@ function displayHoverBuild(itemId) {
         
             }
         }
+        while (itemsLists.firstChild) {
+            itemsLists.removeChild(itemsLists.firstChild);
+        }
         itemsLists.appendChild(itemBuildFrom1);
         itemsLists.appendChild(itemBuildFrom2);
 
         // itemsLists.appendChild(buildFrom);
     }
-   
+
 }
