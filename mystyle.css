@@ -14,6 +14,12 @@ img {
 }
 
 
+.itemImage{
+    width: 65px;
+    height: 65px;
+}
+
+
 li {
     list-style-type: none;
     font-size: 20px;

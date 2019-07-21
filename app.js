@@ -424,10 +424,15 @@ function outputItem(itemName) {
                 
                 
                 for (let j = 0; j < items[i][item].buildsInto.length; j++) {
+                    let itemImage = document.createElement("img");
+
                     let listInto = document.createElement("li");
                     listInto.id = items[i][item].buildsInto[j]
-                    listInto.innerHTML += items[i][item].buildsInto[j];
+                    itemImage.classList.add("itemImage");
+                    itemImage.src = "./images/"+items[i][item].buildsInto[j]+".png";
+
                     buildInto.appendChild(listInto);
+                    listInto.appendChild(itemImage);
                     console.log(items[i][item].buildsInto[j]);
 
 
@@ -456,20 +461,27 @@ function displayHoverBuild(itemId) {
     let selector = "#" + itemId
     let itemsLists = document.querySelector(selector);
     let buildFrom = document.createElement("p");
+
    
 
     for (let i = 0; i < items.length; i++) {
+        let itemBuildFrom1 =  document.createElement("img");
+        let itemBuildFrom2 =  document.createElement("img");
+
         for (item in items[i]) {
             if (itemId == items[i][item].key) {
-                buildFrom.innerHTML = (items[i][item].buildsFrom[0] + "   " + items[i][item].buildsFrom[1]);
-                itemsLists.innerHTML = itemId
+                itemBuildFrom1.src = "./images/"+items[i][item].buildsFrom[0]+".png";
+                itemBuildFrom2.src = "./images/"+items[i][item].buildsFrom[1]+".png";
 
+                // buildFrom.innerHTML = (items[i][item].buildsFrom[0] + "   " + items[i][item].buildsFrom[1]);
+                // itemsLists.innerHTML = items[i][item].name
         
             }
         }
+        itemsLists.appendChild(itemBuildFrom1);
+        itemsLists.appendChild(itemBuildFrom2);
 
-     
-        itemsLists.appendChild(buildFrom);
+        // itemsLists.appendChild(buildFrom);
     }
    
 }
